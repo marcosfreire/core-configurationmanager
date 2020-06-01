@@ -29,7 +29,7 @@ var sample1 = ConfigurationManagerCore.AppSettings["Name"];
 var connectionString = ConfigurationManagerCore.ConnectionStrings["Name"];            
 ```
 
-### É possivel também utilizar a interface IConfiguration para recuperar os dados dos arquivos *.config:
+##### É possivel também utilizar a interface IConfiguration para recuperar os dados dos arquivos *.config:
 ```
 var appSettingsValue = configuration.GetAppSetting("AppConfig");
 ```
@@ -44,6 +44,11 @@ var configuration = new ConfigurationBuilder()
                 .AdicionarArquivoConfiguracao("Web.config")
                 .AdicionarCompatibilidadeDotNetFullFramework();
 ```
+
+# Importante
+A utilização desse tipo de configuração deve ser temporária e usada somente para acelerar o processo de migração de legado sem que seja necessário reescrever toda a parte de configuração.
+
+**Não considerar o uso desse tipo de abordagem em ambiente produtivo.**
 
 ## Referencias
 
