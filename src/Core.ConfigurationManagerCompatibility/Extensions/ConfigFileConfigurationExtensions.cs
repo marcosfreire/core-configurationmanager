@@ -1,7 +1,6 @@
-﻿using Core.ConfigurationManagerCompatibility.Providers;
+using Core.ConfigurationManagerCompatibility.Providers;
 using Microsoft.Extensions.Configuration;
 using System;
-using System.Configuration;
 using System.IO;
 
 namespace Core.ConfigurationManagerCompatibility.Configuration
@@ -23,8 +22,8 @@ namespace Core.ConfigurationManagerCompatibility.Configuration
         public static IConfiguration AdicionarCompatibilidadeDotNetFullFramework(this IConfigurationBuilder builder)
         {
             var configuration = builder.Build();
-            ConfigurationManager.AppSettings = new AppSettings(configuration);
-            ConfigurationManager.ConnectionStrings = new ConnectionStrings(configuration);
+            ConfigurationManagerCore.AppSettings = new AppSettings(configuration);
+            ConfigurationManagerCore.ConnectionStrings = new ConnectionStrings(configuration);
 
             return configuration;
         }

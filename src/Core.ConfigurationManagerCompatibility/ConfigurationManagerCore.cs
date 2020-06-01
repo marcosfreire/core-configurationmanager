@@ -1,9 +1,9 @@
-﻿using Core.ConfigurationManagerCompatibility.Configuration;
+using Core.ConfigurationManagerCompatibility.Configuration;
 using Microsoft.Extensions.Configuration;
 
-namespace System.Configuration
+namespace Core.ConfigurationManagerCompatibility
 {
-    public static class ConfigurationManager
+    public static class ConfigurationManagerCore
     {
         public static AppSettings AppSettings { get; set; }
         public static ConnectionStrings ConnectionStrings { get; set; }

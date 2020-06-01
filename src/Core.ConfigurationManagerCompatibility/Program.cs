@@ -1,5 +1,6 @@
 using Core.ConfigurationManagerCompatibility.Configuration;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 
 namespace Core.ConfigurationManagerCompatibility
@@ -12,21 +13,23 @@ namespace Core.ConfigurationManagerCompatibility
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .AdicionarArquivoConfiguracao("App.config")
-                .AdicionarArquivoConfiguracao("Web.config")
                 .AdicionarCompatibilidadeDotNetFullFramework();
 
-            var arquivoConfig1 = System.Configuration.ConfigurationManager.AppSettings["AppConfig"];
-            var arquivoConfig2 = System.Configuration.ConfigurationManager.AppSettings["WebConfigAppSettings"];
+            var arquivoConfig1 = ConfigurationManagerCore.AppSettings["AppConfig"];
 
-            var arquivoConfig5 = configuration.GetAppSetting("AppConfig");
+            var arquivoConfigConnectionString1 = configuration.GetConnectionString("AppConfigConnection");
+            var arquivoJsonConnectionString1 = configuration.GetConnectionString("JsonConfigSampleConnection");
 
-            var arquivoConfigConnectionString1 = System.Configuration.ConfigurationManager.ConnectionStrings["WebConfigConnection"];
-            var arquivoConfigCconnectionString2 = System.Configuration.ConfigurationManager.ConnectionStrings["AppConfigConnection"];
-            var arquivoConfigCconnectionString3 = System.Configuration.ConfigurationManager.ConnectionStrings["JsonConfigSampleConnection"];
+            Console.WriteLine("\n## App.Config ##");
+            Console.WriteLine(arquivoConfig1);
 
-            var arquivoJsonConnectionString1 = configuration.GetConnectionString("WebConfigConnection");
-            var arquivoJsonConnectionString2 = configuration.GetConnectionString("AppConfigConnection");
-            var arquivoJsonConnectionString3 = configuration.GetConnectionString("JsonConfigSampleConnection");
+            Console.WriteLine("\n\n## App.Config - ConnectionString ##");
+            Console.WriteLine(arquivoConfigConnectionString1);
+
+            Console.WriteLine("\n\n## appsettings.Json##");
+            Console.WriteLine(arquivoJsonConnectionString1);
+
+            Console.ReadKey();
         }
     }
 }

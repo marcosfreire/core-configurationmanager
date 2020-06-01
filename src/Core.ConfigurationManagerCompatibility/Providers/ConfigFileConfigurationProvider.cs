@@ -1,4 +1,4 @@
-﻿using Core.ConfigurationManagerCompatibility.Interfaces;
+using Core.ConfigurationManagerCompatibility.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
