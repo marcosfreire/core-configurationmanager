@@ -20,21 +20,19 @@ var configuration = new ConfigurationBuilder()
 #### Após esse passo, é possivel acessar as configurações da maneira tradicional em projetos **.netcore**
 
 ```
-var sample1 = System.Configuration.ConfigurationManager.AppSettings["Name"];
+var sample1 = ConfigurationManagerCore.AppSettings["Name"];
 ```
 
 #### Também é possivel acessar as configurações de connection string de maneira tradicional:
 
 ```
-var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Name"];            
+var connectionString = ConfigurationManagerCore.ConnectionStrings["Name"];            
 ```
 
 ### É possivel também utilizar a interface IConfiguration para recuperar os dados dos arquivos *.config:
 ```
 var appSettingsValue = configuration.GetAppSetting("AppConfig");
 ```
-
-# Dica
 
 ### É possivel usar multiplos arquivos de configuração (*.config e *.json)
 
